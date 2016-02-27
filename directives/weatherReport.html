@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ convertToDate({ dt: weatherDay.dt}) | date: "EEEE" }}</h3>
+        <h4 class="panel-title">{{ convertToDate({ dt: weatherDay.dt}) | date: dateFormat }}</h4>
+        
+        <ul class="forecast-daytemp" ng-repeat="w in weatherDay.weather">
+            <li class="icon-{{ w.icon }}"></li>
+            <li class="temperature">{{ convertToStandard({ daytimeTemp: weatherDay.temp.day }) }}<small>ºC</small></li>
+        </ul>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <i class="fa fa-arrow-up"></i> {{ convertToStandard({ daytimeTemp: weatherDay.temp.max }) }}ºC
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <i class="fa fa-sun-o"></i> {{ convertToStandard({ daytimeTemp: weatherDay.temp.morn }) }}ºC
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <i class="fa fa-arrow-down"></i> {{ convertToStandard({ daytimeTemp: weatherDay.temp.min }) }}ºC
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <i class="fa fa-moon-o"></i> {{ convertToStandard({ daytimeTemp: weatherDay.temp.night }) }}ºC
+            </div>
+        </div>
+    </div>
+</div>
